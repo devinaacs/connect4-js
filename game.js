@@ -111,7 +111,7 @@ class Connect4 {
         
         if (hasWinner) {
             this.highlightWinningCells();
-            // confetti.celebrate(); // Will add this when confetti is ready
+            confetti.celebrate();
         }
     }
 
@@ -223,7 +223,6 @@ class Connect4 {
     }
 
     highlightWinningCells() {
-        // Cells are highlighted via CSS in renderBoard
     }
 
     updateStatus() {
