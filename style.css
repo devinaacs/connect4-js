@@ -88,7 +88,6 @@ h1 {
     position: relative;
     max-width: 100%;
     overflow-x: auto;
-    min-height: auto; /* Remove placeholder */
 }
 
 .board::before {
@@ -100,16 +99,13 @@ h1 {
     z-index: -1;
 }
 
-/* Dynamic elements created by JavaScript */
 .row {
     display: flex;
     justify-content: center;
     margin-bottom: var(--spacing-sm);
 }
 
-.row:last-child { 
-    margin-bottom: 0; 
-}
+.row:last-child { margin-bottom: 0; }
 
 .cell {
     width: var(--cell-size);
@@ -171,15 +167,6 @@ h1 {
     50% { transform: scale(1.1); }
 }
 
-.status.winner {
-    font-size: 1.3em;
-    color: white;
-}
-
-.status.winner.red { background: linear-gradient(145deg, #e74c3c, var(--player-red)); }
-.status.winner.yellow { background: linear-gradient(145deg, #f39c12, var(--player-yellow)); }
-.status.winner.draw { background: linear-gradient(145deg, #95a5a6, #7f8c8d); }
-
 .controls {
     margin-top: var(--spacing-md);
 }
@@ -203,4 +190,42 @@ h1 {
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     background: linear-gradient(145deg, #5ba0f2, var(--accent-blue));
+}
+
+.status.winner {
+    font-size: 1.3em;
+    color: white;
+}
+
+.status.winner.red { background: linear-gradient(145deg, #e74c3c, var(--player-red)); }
+.status.winner.yellow { background: linear-gradient(145deg, #f39c12, var(--player-yellow)); }
+.status.winner.draw { background: linear-gradient(145deg, #95a5a6, #7f8c8d); }
+
+@media (max-width: 768px) {
+    .game-container {
+        padding: var(--spacing-md);
+        margin: var(--spacing-sm);
+    }
+    
+    .board {
+        padding: var(--spacing-md);
+    }
+    
+    .cell {
+        margin: 0 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --cell-size: min(40px, 12vw);
+    }
+    
+    .game-container {
+        padding: var(--spacing-md);
+    }
+    
+    .player-info {
+        font-size: 0.9rem;
+    }
 }
